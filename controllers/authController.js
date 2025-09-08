@@ -1,4 +1,6 @@
 const db = require("../models/users.js");
+const bcrypt = require("bcryptjs");
+const { validationResult } = require('express-validator');
 
 
 async function renderLoginForm(req, res) {
@@ -15,8 +17,14 @@ async function renderSignUpForm(req,res) {
 }
 
 async function signup(req,res){
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     try{
-        await db.createUser(req.body.fname, req.body.lname, req.body.email, req.body.password)
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);       
+        await db.createUser(req.body.fname, req.body.lname, req.body.email, hashedPassword);
         res.redirect("/")
     }catch(err){
         console.error("Signup error:", err);
