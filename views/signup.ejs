@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sign Up</title></head>
+<body>
+  <h1>Create New User</h1>
+  <form method="POST" action="/auth/signup">
+    <label>First Name:</label><br/>
+    <input type="text" name="fname" required/><br/>
+    
+    <label>Last Name:</label><br/>
+    <input type="text" name="lname" required/><br/>
+    
+    <label for="email">Enter your email:</label>
+    <input type="email" name="email"><br/>
+    
+    <label for="pass">Password (8 characters minimum):</label>
+    <input type="password" name="password" minlength="8" required />
+
+    <button type="submit">Create</button>
+  </form>
+  <a href="/home">Back to Home</a>
+</body>
+</html>
