@@ -4,16 +4,20 @@ const { validationResult } = require('express-validator');
 
 
 async function renderLoginForm(req, res) {
-    res.render("login") //TODO make login form view
+    res.render('login', { title: 'Login Page' });
 }
 
 
-async function login(req,res){
-    return null;
+async function login(req, res, next){
+    const passport = require('passport');
+    passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/auth/login',
+    })(req, res, next);
 }
 
 async function renderSignUpForm(req,res) {
-    res.render("signup");
+    res.render('signup', { title: 'Sign Up Page' });
 }
 
 async function signup(req,res){
