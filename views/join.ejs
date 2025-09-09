@@ -1,0 +1,10 @@
+<h1>Join the Club</h1>
+<% if (error) { %>
+  <p style="color: red;"><%= error %></p>
+<% } %>
+
+<form action="/auth/join" method="POST">
+  <label for="passcode">Enter Secret Passcode:</label>
+  <input type="password" name="passcode" required>
+  <button type="submit">Join</button>
+</form>
