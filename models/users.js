@@ -14,7 +14,23 @@ async function getUserByEmail(email) {
     return result.rows[0];
 }
 
+async function getUserById(id) {
+    const result = await pool.query(
+        "SELECT * FROM users WHERE id = $1", [id]
+    )
+    return result.rows[0]
+    
+}
+
+
+async function updateMembership(id, status){
+    await pool.query(
+        "UPDATE users SET is_member = $1 WHERE id = $2", [status, id]
+    );
+}
 module.exports = {
     createUser,
-    getUserByEmail
+    getUserByEmail,
+    getUserById,
+    updateMembership
 }
