@@ -9,9 +9,15 @@
 <body>
 
   <nav>
+    <% if (currentUser) { %>
+        <% if (!currentUser.is_member) { %>
+    <a href="/auth/join">Join the Club</a>
+    <% } %>
+    <a href="/auth/logout">Logout</a>
+    <% } else { %>
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Sign Up</a>
-    <a href="/auth/join">Join</a>
+    <% } %>
   </nav>
 
   <div class="content">
