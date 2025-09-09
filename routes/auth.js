@@ -39,4 +39,7 @@ authRouter.post("/signup",[
 
 authRouter.get("/logout", authController.logout);
 
+authRouter.get("/join", authController.renderJoinForm);
+authRouter.post("/join", authController.joinClub);
+
 module.exports = authRouter;
