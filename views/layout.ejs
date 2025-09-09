@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%= title || 'My App' %></title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="/auth/login">Login</a>
+    <a href="/auth/signup">Sign Up</a>
+    <a href="/auth/join">Join</a>
+  </nav>
+
+  <div class="content">
+    <%- body %>
+  </div>
+
+
+  <footer>
+    <p>&copy; 2025 My App</p>
+  </footer>
+
+</body>
+</html>
