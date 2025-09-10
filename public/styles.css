@@ -8,12 +8,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f4f8;
-  height: 100vh; /* Ensure body takes full height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Navbar styles */
 nav {
   background-color: #3f51b5;
   padding: 1rem;
