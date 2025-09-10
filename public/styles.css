@@ -121,10 +121,100 @@ form.auth-form {
   text-decoration: underline;
 }
 
-/* Footer styling */
+
+.messages-container {
+  max-width: 800px;
+  margin: 6rem auto 2rem auto; 
+  padding: 1rem;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.message-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.message-title {
+  font-size: 1.4rem;
+  color: #3f51b5;
+  margin-bottom: 0.8rem;
+}
+
+.message-content {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.8rem;
+}
+
+.message-author {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Footer */
 footer {
   background-color: #3f51b5;
   color: white;
   padding: 1rem;
   text-align: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border: 2px solid #3f51b5;
+  border-radius: 6px;
+  color: #3f51b5;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover {
+  background-color: #3f51b5;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.pagination-btn.active {
+  background-color: #3f51b5;
+  color: #fff;
+  cursor: default;
+  pointer-events: none;
 }
