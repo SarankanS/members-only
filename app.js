@@ -7,6 +7,8 @@ const authRoutes = require('./routes/auth');
 const messageRoutes = require('./routes/messages');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
+const homeRoutes = require('./routes/home');
+
 
 
 require('dotenv').config();
@@ -37,10 +39,7 @@ initializePassport(passport);
 app.use('/auth', authRoutes);
 app.use('/messages', messageRoutes);
 
-app.get("/", (req, res) => {
-  // res.send("Welcome to the Members only!");
-  res.render("home", {title: "Members Home"});
-});
+app.use('/', homeRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
