@@ -1,1 +1,35 @@
-<h1>Hi</h1>
+<div class="messages-container">
+  <h1 class="page-title">Welcome to Members Only</h1>
+
+  <% if (messages.length === 0) { %>
+    <p class="empty-message">No messages yet.</p>
+  <% } else { %>
+    <div class="message-list">
+      <% messages.forEach(message => { %>
+        <div class="message-card">
+          <h2 class="message-title"><%= message.title %></h2>
+          <p class="message-content"><%= message.content %></p>
+          <% if (currentUser && currentUser.is_member) { %>
+            <p class="message-author">Author: <%= message.authorname %></p>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <div class="pagination">
+    <% if (currentPage > 1) { %>
+      <a href="/?page=<%= currentPage - 1 %>" class="pagination-btn">Previous</a>
+    <% } %>
+
+    <% for (let i = 1; i <= totalPages; i++) { %>
+      <a href="/?page=<%= i %>" class="pagination-btn <%= currentPage === i ? 'active' : '' %>">
+        <%= i %>
+      </a>
+    <% } %>
+
+    <% if (currentPage < totalPages) { %>
+      <a href="/?page=<%= currentPage + 1 %>" class="pagination-btn">Next</a>
+    <% } %>
+  </div>
+</div>
