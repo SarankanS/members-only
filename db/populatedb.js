@@ -1,9 +1,6 @@
-#! /usr/bin/env node
-
 const { Client } = require("pg");
 
 const SQL = `
-
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     firstname VARCHAR(100) NOT NULL,
@@ -22,11 +19,17 @@ CREATE TABLE IF NOT EXISTS messages (
     author_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE   
 );
 `
+
 async function main() {
+  const connectionString = process.env.DATABASE_URL;
+
+  if (!connectionString) {
+    console.error("Please set the DATABASE_URL environment variable");
+    process.exit(1);
+  }
+
   console.log("Seeding members only database...");
-  const client = new Client({
-    connectionString: "postgresql://sarankansrikaran:@localhost:5432/members_only",
-  });
+  const client = new Client({ connectionString });
   await client.connect();
   await client.query(SQL);
   await client.end();
