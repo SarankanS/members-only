@@ -67,20 +67,28 @@ form.auth-form {
   color: #444;
 }
 
-.auth-form input {
+.auth-form input,
+.auth-form textarea {
   width: 100%;
   padding: 0.6rem 0.8rem;
   margin-bottom: 1.2rem;
   border: 1.5px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.auth-form input:focus {
+.auth-form input:focus,
+.auth-form textarea:focus {
   border-color: #3f51b5;
   outline: none;
   box-shadow: 0 0 8px #3f51b5;
+}
+
+.auth-form textarea {
+  height: 120px;
+  resize: vertical;
 }
 
 .auth-form button {
