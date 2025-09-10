@@ -37,14 +37,14 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Main content area */
 .content {
-  flex: 1; /* Allow content to take up remaining space */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5rem; /* Add space below the fixed navbar */
+  padding-top: 4rem; 
 }
+
 
 form.auth-form {
   background: white;
